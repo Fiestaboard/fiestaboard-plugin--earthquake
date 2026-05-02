@@ -1,0 +1,106 @@
+{
+  "id": "earthquake",
+  "name": "Earthquake Monitor",
+  "version": "0.1.0",
+  "description": "Display recent significant earthquakes from the USGS real-time feed.",
+  "author": "FiestaBoard Team",
+  "icon": "activity",
+  "category": "data",
+  "repository": "https://github.com/Fiestaboard/fiestaboard-plugin--earthquake",
+  "documentation": "README.md",
+  "min_refresh_seconds": 300,
+  "settings_schema": {
+    "type": "object",
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "title": "Enabled",
+        "default": false
+      },
+      "min_magnitude": {
+        "type": "number",
+        "title": "Minimum Magnitude",
+        "description": "Only show earthquakes at or above this magnitude.",
+        "default": 4.0,
+        "minimum": 0.0,
+        "maximum": 10.0
+      },
+      "feed": {
+        "type": "string",
+        "title": "Feed Type",
+        "description": "Which USGS feed to use.",
+        "enum": [
+          "significant_day",
+          "4.5_day",
+          "2.5_day",
+          "1.0_day"
+        ],
+        "default": "significant_day"
+      },
+      "refresh_seconds": {
+        "type": "integer",
+        "title": "Refresh Interval (seconds)",
+        "description": "How often to fetch earthquake data.",
+        "default": 300,
+        "minimum": 60
+      }
+    },
+    "required": []
+  },
+  "variables": {
+    "groups": {
+      "latest": {
+        "label": "Latest Earthquake"
+      },
+      "stats": {
+        "label": "Statistics"
+      }
+    },
+    "simple": {
+      "magnitude": {
+        "description": "Magnitude of the most recent earthquake",
+        "type": "number",
+        "max_length": 5,
+        "group": "latest",
+        "example": "6.1"
+      },
+      "location": {
+        "description": "Location description of the most recent earthquake",
+        "type": "string",
+        "max_length": 22,
+        "group": "latest",
+        "example": "50km NE of Tokyo"
+      },
+      "depth_km": {
+        "description": "Focal depth in km",
+        "type": "number",
+        "max_length": 6,
+        "group": "latest",
+        "example": "12.4"
+      },
+      "count": {
+        "description": "Number of earthquakes in the feed",
+        "type": "integer",
+        "max_length": 4,
+        "group": "stats",
+        "example": "3"
+      },
+      "time_ago": {
+        "description": "How long ago the most recent quake occurred",
+        "type": "string",
+        "max_length": 12,
+        "group": "latest",
+        "example": "2h ago"
+      }
+    }
+  },
+  "screenshots": [
+    {
+      "src": "docs/board-display.png",
+      "alt": "Earthquake Monitor displayed on a Vestaboard",
+      "caption": "Example board output using the default template",
+      "primary": true
+    }
+  ],
+  "api_docs": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php"
+}
