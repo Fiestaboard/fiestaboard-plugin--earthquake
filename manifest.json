@@ -1,7 +1,7 @@
 {
   "id": "earthquake",
   "name": "Earthquake Monitor",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Display recent significant earthquakes from the USGS real-time feed.",
   "author": "FiestaBoard Team",
   "icon": "activity",
@@ -104,47 +104,70 @@
   ],
   "api_docs": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php",
   "demo": {
-    "name": "Earthquake Monitor Demo",
-    "device_type": "flagship",
-    "config": {
-      "enabled": true,
-      "min_magnitude": 4.0,
-      "feed": "significant_day",
-      "refresh_seconds": 300
+    "flagship": {
+      "name": "Earthquake Monitor Demo",
+      "config": {
+        "enabled": true,
+        "min_magnitude": 4.0,
+        "feed": "significant_day",
+        "refresh_seconds": 300
+      },
+      "template": [
+        "Earthquake Monitor",
+        "",
+        "M{{earthquake.magnitude}} {{earthquake.location}}",
+        "Depth: {{earthquake.depth_km}} km",
+        "{{earthquake.time_ago}}",
+        "Feed total: {{earthquake.count}}"
+      ],
+      "line_metadata": [
+        {
+          "alignment": "center",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        }
+      ]
     },
-    "template": [
-      "Earthquake Monitor",
-      "",
-      "M{{earthquake.magnitude}} {{earthquake.location}}",
-      "Depth: {{earthquake.depth_km}} km",
-      "{{earthquake.time_ago}}",
-      "Feed total: {{earthquake.count}}"
-    ],
-    "line_metadata": [
-      {
-        "alignment": "center",
-        "wrap": false
-      },
-      {
-        "alignment": "left",
-        "wrap": false
-      },
-      {
-        "alignment": "left",
-        "wrap": false
-      },
-      {
-        "alignment": "left",
-        "wrap": false
-      },
-      {
-        "alignment": "left",
-        "wrap": false
-      },
-      {
-        "alignment": "left",
-        "wrap": false
-      }
-    ]
+    "note": {
+      "name": "Earthquake (Note)",
+      "template": [
+        "EARTHQUAKE",
+        "M{{earthquake.magnitude}}",
+        "{{earthquake.time_ago}}"
+      ],
+      "line_metadata": [
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        }
+      ]
+    }
   }
 }
