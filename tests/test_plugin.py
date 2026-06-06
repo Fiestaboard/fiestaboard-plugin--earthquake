@@ -133,6 +133,8 @@ class TestEarthquakePlugin:
         assert result.data is not None
         assert "magnitude" in result.data, "missing variable: magnitude"
         assert "location" in result.data, "missing variable: location"
+        # Location must be returned in full, not pre-truncated to fit the board.
+        assert result.data["location"] == "50km NE of Tokyo, Japan"
         assert "depth_km" in result.data, "missing variable: depth_km"
         assert "count" in result.data, "missing variable: count"
         assert "time_ago" in result.data, "missing variable: time_ago"
