@@ -59,7 +59,7 @@ class EarthquakePlugin(PluginBase):
             coords = latest["geometry"]["coordinates"]
 
             mag = round(float(props.get("mag", 0)), 1)
-            location = str(props.get("place", "Unknown"))[:22]
+            location = str(props.get("place", "Unknown"))
             depth_km = round(float(coords[2]), 1) if len(coords) > 2 else 0.0
 
             # Time ago
