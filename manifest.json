@@ -102,6 +102,28 @@
       "primary": true
     }
   ],
+  "teaser": "M6.1 2H AGO",
+  "previews": [
+    {
+      "device_type": "flagship",
+      "rows": [
+        "  Earthquake Monitor",
+        "",
+        "M6.1 50km NE of Tokyo",
+        "Depth: 12.4 km",
+        "2h ago",
+        "Feed total: 3"
+      ]
+    },
+    {
+      "device_type": "note",
+      "rows": [
+        "EARTHQUAKE",
+        "M6.1",
+        "2h ago"
+      ]
+    }
+  ],
   "api_docs": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php",
   "demo": {
     "flagship": {
