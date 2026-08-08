@@ -118,9 +118,9 @@
     {
       "device_type": "note",
       "rows": [
-        "EARTHQUAKE",
-        "M6.1",
-        "2h ago"
+        "{64}{64} EARTHQUAKE",
+        "MAG 6.1",
+        "2H AGO"
       ]
     }
   ],
